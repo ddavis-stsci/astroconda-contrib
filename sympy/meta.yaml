@@ -1,0 +1,45 @@
+#
+{% set name = 'sympy' %}
+{% set version = '1.0' %}
+{% set number = '0' %}
+
+about:
+    # Package homepage
+    home: http://sympy.org
+    # Package license
+    license: GPL
+    # A brief description
+    summary: Python library for symbolic mathematics
+
+package:
+    # Define these values above
+    name: {{ name }}
+    version: {{ version }}
+
+build:
+    # Define this value above
+    number: {{ number }}
+
+source:
+    fn: {{ name }}-{{ 1.0 }}.tar.gz
+    url: https://github.com/{{ name }}/{{ name }}/releases/download/{{ name }}-{{ version }}/{{ name }}-{{ version }}.tar.gz
+
+requirements:
+    build:
+    # Dependencies required at BUILD-TIME go here
+    - mpmath
+    - setuptools
+    - python x.x
+    run:
+    # Dependencies required at RUN-TIME go here
+    - mpmath
+    - python x.x
+
+test:
+   imports:
+       - sympy
+#   # - (e.g. a_python_module)
+#
+#   commands:
+#   
+# - (e.g. program --help)
